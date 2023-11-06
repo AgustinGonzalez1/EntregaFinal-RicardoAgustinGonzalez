@@ -9,6 +9,7 @@ const NavLinksContainer = () => {
 		setClasses(!classes);
 	};
 	const show = classes ? "h-[calc(100vh-76px)]" : "";
+
 	return (
 		<div className="flex">
 			<Hamburger addClasses={addClasses} classes={classes} />
