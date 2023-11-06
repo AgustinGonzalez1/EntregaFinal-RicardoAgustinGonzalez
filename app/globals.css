@@ -1,3 +1,26 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+/* Hamburger */
+.linea1,
+.linea2,
+.linea3 {
+	width: 30px;
+	height: 5px;
+	background-color: #fff;
+	margin: 5px;
+	border-radius: 3px;
+	transition: all 0.3s;
+}
+
+.linea11 {
+	transform: translateY(10px) rotate(225deg);
+}
+.linea22 {
+	opacity: 0;
+}
+.linea33 {
+	transform: translateY(-10px) rotate(-225deg);
+}
+/* Hamburger */
