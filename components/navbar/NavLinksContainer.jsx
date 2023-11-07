@@ -1,6 +1,6 @@
 "use client";
 import React, { useState } from "react";
-import Hamburger from "../controllers/Hamburger";
+import Hamburger from "./Hamburger";
 import NavLinks from "./NavLinks";
 
 const NavLinksContainer = () => {
@@ -15,11 +15,9 @@ const NavLinksContainer = () => {
 			<Hamburger addClasses={addClasses} classes={classes} />
 			<ul
 				className={`h-0 bg-slate-800 ease-in-out duration-300 flex items-center absolute md:static w-full md:w-auto justify-center flex-col md:flex-row overflow-hidden top-[76px] left-[0px] gap-5 text-white md:h-auto ${show}`}>
-				<NavLinks href={"/"} text={"Inicio"} />
-				<NavLinks href={"/login"} text={"Login"} />
-				<NavLinks href={"/register"} text={"Register"} />
-				<NavLinks href={"/products"} text={"Products"} />
-				<NavLinks href={"/cart"} text={"Cart"} />
+				<NavLinks href={"/"} text={"Inicio"} set={setClasses} />
+				<NavLinks href={"/products/all"} text={"Products"} set={setClasses} />
+				<NavLinks href={"/cart"} text={"Cart"} set={setClasses} />
 			</ul>
 		</div>
 	);

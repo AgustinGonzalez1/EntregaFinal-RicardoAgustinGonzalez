@@ -1,14 +1,8 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
 	images: {
-		remotePatterns: [
-			{
-				protocol: "https",
-				hostname: "raw.githubusercontent.com",
-				port: "",
-				pathname: "/**",
-			},
-		],
+		domains: ["placehold.co"],
+		dangerouslyAllowSVG: true, // Habilita la carga de imágenes SVG
 	},
 };
 
