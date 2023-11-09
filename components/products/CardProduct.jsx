@@ -2,16 +2,16 @@ import Image from "next/image";
 
 const CardProduct = ({ data }) => {
 	return (
-		<div className="flex flex-wrap justify-center gap-5">
+		<div className="grid place-items-center sm:place-content-start gap-5 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
 			{data.map((item, key) => (
-				<div key={key} className="flex w-[250px] flex-col overflow-hidden duration-200 card ">
+				<div key={key} className="flex sm:w-full w-[250px] flex-col overflow-hidden duration-200 card ">
 					<div className=" bg-gradient-to-b from-[#865dff] to-[#e384ff]">
 						<Image priority width={250} height={250} src={item.image} alt={item.title} className="w-full" />
 					</div>
-					<div className="bg-[#f8f8f8] p-8 flex flex-col gap-8">
-						<div>
+					<div className="bg-[#f8f8f8] p-4 flex flex-col gap-2">
+						<div className="flex flex-col gap-1">
 							<p className="text-[10px] text-end">{item.type}</p>
-							<h3 className="text-lg font-bold">{item.title}</h3>
+							<h3 className="text-xs font-bold">{item.title}</h3>
 							<p className="text-sm">{item.brand}</p>
 						</div>
 						<div>
@@ -21,8 +21,7 @@ const CardProduct = ({ data }) => {
 								<p className="text-sm text-red-500">Sin stock</p>
 							)}
 						</div>
-						<div className="flex justify-between">
-							<p className="text-sm font-semibold capitalize">{item.category}</p>
+						<div className="">
 							<p className="text-sm font-semibold">${item.price}</p>
 						</div>
 					</div>
