@@ -14,7 +14,7 @@ const NavLinksContainer = () => {
 		<div className="flex">
 			<Hamburger addClasses={addClasses} classes={classes} />
 			<ul
-				className={`h-0 bg-white z-10 ease-in-out duration-300 flex items-center absolute md:static w-full md:w-auto justify-center flex-col md:flex-row overflow-hidden top-[75px] left-[0px] gap-5 text-black md:h-auto ${show}`}>
+				className={`h-0 bg-white z-10 ease-in-out duration-300 flex items-center absolute md:static w-full md:w-auto justify-center flex-col md:flex-row overflow-hidden top-[76px] left-[0px] gap-5 text-black md:h-auto ${show}`}>
 				<NavLinks href={"/"} text={"Inicio"} set={setClasses} />
 				<NavLinks href={"/productos/todos"} text={"Productos"} set={setClasses} />
 				<NavLinks href={"/cart"} text={"Carrito"} set={setClasses} />

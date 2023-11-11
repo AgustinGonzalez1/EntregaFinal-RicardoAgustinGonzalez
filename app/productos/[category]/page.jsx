@@ -1,6 +1,12 @@
 import CardProduct from "@/components/products/CardProduct";
 import { mockData } from "@/data/products";
 
+export async function generateMetadata({ params, searchParams }, parent) {
+	return {
+		title: `CORONA - ${params.category.toUpperCase()}`,
+	};
+}
+
 const FilterProducts = ({ params }) => {
 	const { category } = params;
 
@@ -12,7 +18,6 @@ const FilterProducts = ({ params }) => {
 		<section className="bg">
 			<div className="container mx-auto">
 				<h2 className={`text-3xl text-center my-5 ${category !== "todos" ? "capitalize" : ""}`}>{title}</h2>
-
 				<CardProduct data={data} />
 			</div>
 		</section>
