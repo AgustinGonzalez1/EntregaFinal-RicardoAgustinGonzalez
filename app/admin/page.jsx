@@ -1,5 +1,5 @@
 export const metadata = {
-	title: "Register",
+	title: "CORONA - ADMIN",
 };
 
 const page = () => {
