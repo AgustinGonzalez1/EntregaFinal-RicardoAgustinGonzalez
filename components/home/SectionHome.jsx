@@ -1,6 +1,6 @@
 import Image from "next/image";
 
-const VistaHome = ({ image, title }) => {
+const SectionHome = ({ image, title }) => {
 	return (
 		<article className="md:w-96 w-64 h-64 overflow-hidden">
 			<div className="relative w-full h-full hover:scale-110 duration-300 ease-in-out">
@@ -12,4 +12,4 @@ const VistaHome = ({ image, title }) => {
 		</article>
 	);
 };
-export default VistaHome;
+export default SectionHome;
