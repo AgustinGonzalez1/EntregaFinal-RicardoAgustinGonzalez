@@ -2,6 +2,10 @@ export const metadata = {
 	title: "CORONA - INICIO",
 };
 
-export default function Home() {
-	return <main className="flex min-h-screen flex-col items-center justify-between p-24">home</main>;
+export default async function Home() {
+	return (
+		<main className="flex h-[calc(100vh-75px)] flex-col items-center justify-between">
+			<h1 className="text-4xl font-bold">CORONA</h1>
+		</main>
+	);
 }
