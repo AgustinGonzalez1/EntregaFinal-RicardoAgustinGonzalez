@@ -6,9 +6,9 @@ export const metadata = {
 
 export default async function Home() {
 	return (
-		<main className="flex h-[calc(100vh-75px)] flex-col items-center justify-between">
+		<main className="flex min-h-[calc(100vh-75px)] flex-col items-center justify-between">
 			<h1 className="text-4xl font-bold">CORONA</h1>
-			<section className="grid sm:grid-cols-2 gap-4 my-5 grid-cols-1">
+			<section className="grid sm:grid-cols-2 gap-4 grid-cols-1 my-5">
 				<SectionHome image={"/home/anillos.jpeg"} title={"anillos"} />
 				<SectionHome image={"/home/aros.jpeg"} title={"aros"} />
 				<SectionHome image={"/home/collares.jpeg"} title={"collares"} />
