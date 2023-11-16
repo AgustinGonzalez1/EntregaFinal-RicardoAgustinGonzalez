@@ -1,4 +1,4 @@
-import SectionHome from "@/components/home/SectionHome";
+import SectionHomeContainer from "@/components/home/SectionHomeContainer";
 
 export const metadata = {
 	title: "CORONA - INICIO",
@@ -7,13 +7,8 @@ export const metadata = {
 export default async function Home() {
 	return (
 		<main className="flex min-h-[calc(100vh-75px)] flex-col items-center justify-between">
-			<h1 className="text-4xl font-bold">CORONA</h1>
-			<section className="grid sm:grid-cols-2 gap-4 grid-cols-1 my-5">
-				<SectionHome image={"/home/anillos.jpeg"} title={"anillos"} />
-				<SectionHome image={"/home/aros.jpeg"} title={"aros"} />
-				<SectionHome image={"/home/collares.jpeg"} title={"collares"} />
-				<SectionHome image={"/home/pulseras.jpeg"} title={"pulseras"} />
-			</section>
+			<h1 className="text-4xl font-bold mt-5">CORONA</h1>
+			<SectionHomeContainer />
 			<span></span>
 		</main>
 	);
