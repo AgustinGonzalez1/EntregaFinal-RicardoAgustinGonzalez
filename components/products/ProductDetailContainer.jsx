@@ -2,13 +2,10 @@
 import Image from "next/image";
 import ItemCount from "./ItemCount";
 import CompletePurchase from "./CompletePurchase";
-import { mockData } from "@/data/products";
+
 import { useState } from "react";
 
-const ProductDetailContainer = ({ params }) => {
-	const { slug } = params;
-
-	const product = mockData.find((item) => item.slug === slug);
+const ProductDetailContainer = ({ product }) => {
 	const [quantityAdded, setQuantityAdded] = useState(0);
 
 	return (
@@ -26,13 +23,6 @@ const ProductDetailContainer = ({ params }) => {
 				<div className="flex flex-col gap-1">
 					<h3 className="text-2xl font-bold">{product.title}</h3>
 					<p className="text-xl">${product.price}</p>
-					<div>
-						{product.stock > 0 ? (
-							<p className="text-sm">Stock: {product.stock}</p>
-						) : (
-							<p className="text-sm text-red-500">Sin stock</p>
-						)}
-					</div>
 				</div>
 				<div className="flex justify-center">
 					{quantityAdded === 0 ? (

@@ -26,6 +26,10 @@ const ItemCount = ({ stock, setQuantityAdded }) => {
 		}
 	}, [newStock]);
 
+	useEffect(() => {
+		setNewStock(stock);
+	}, [stock]);
+
 	const add = () => {
 		selectedQuantity < newStock && setSelectedQuantity(selectedQuantity + 1);
 	};

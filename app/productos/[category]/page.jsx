@@ -1,5 +1,5 @@
+import { getProducts } from "@/app/api/productos/[category]/products";
 import CardProduct from "@/components/products/CardProduct";
-import { mockData } from "@/data/products";
 
 export async function generateMetadata({ params, searchParams }, parent) {
 	return {
@@ -7,10 +7,10 @@ export async function generateMetadata({ params, searchParams }, parent) {
 	};
 }
 
-const FilterProducts = ({ params }) => {
+const FilterProducts = async ({ params }) => {
 	const { category } = params;
 
-	const data = category === "todos" ? mockData : mockData.filter((item) => item.category === category);
+	const data = await getProducts(category);
 
 	const title = category === "todos" ? "Todos los productos" : category;
 

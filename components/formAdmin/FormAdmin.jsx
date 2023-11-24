@@ -1,7 +1,7 @@
 "use client";
-import Button from "../products/Button";
 
 const FormAdmin = () => {
+	console.log("asd");
 	return (
 		<form action="" className="flex flex-col gap-4 p-10 border-2 border-gray-700">
 			<h3 className="text-xl font-bold">Ingresar al panel de administración</h3>
