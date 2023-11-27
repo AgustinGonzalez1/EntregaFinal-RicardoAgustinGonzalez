@@ -7,6 +7,7 @@ import { useState } from "react";
 
 const ProductDetailContainer = ({ product }) => {
 	const [quantityAdded, setQuantityAdded] = useState(0);
+	console.log(product);
 
 	return (
 		<article className="flex justify-center">

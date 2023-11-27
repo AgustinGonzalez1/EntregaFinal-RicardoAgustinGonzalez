@@ -1,23 +1,5 @@
 export const mockData = [
 	{
-		title: "YOU ARE MY LOBSTER GOLD STUD",
-		stock: 10,
-		price: "2.450",
-		slug: "you-are-my-lobster-gold-stud",
-		image: "/aros/aros1.webp",
-		type: "Aros",
-		category: "aros",
-	},
-	{
-		title: "FIVE GUYS EAR CUFF",
-		stock: 10,
-		price: "3.850",
-		slug: "five-guys-ear-cuff",
-		image: "/aros/aros2.webp",
-		type: "Aros",
-		category: "aros",
-	},
-	{
 		title: "ARO GIRL OLMI",
 		stock: 10,
 		price: "3.600",

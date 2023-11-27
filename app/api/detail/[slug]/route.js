@@ -1,10 +1,14 @@
 import { NextResponse } from "next/server";
-import { mockData } from "@/data/products";
+import { doc, getDoc } from "firebase/firestore";
+import { db } from "@/firebase/config";
 
 export async function GET(request, { params }) {
 	const { slug } = params;
 
-	const product = mockData.find((product) => product.slug === slug);
+	const docRef = doc(db, "productos", slug);
+	const docSnap = await getDoc(docRef);
+
+	const product = docSnap.data();
 
 	return NextResponse.json(product);
 }

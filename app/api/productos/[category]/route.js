@@ -1,10 +1,23 @@
 import { NextResponse } from "next/server";
-import { mockData } from "@/data/products";
+import { collection, getDocs, query, where } from "firebase/firestore";
+import { db } from "@/firebase/config";
 
 export async function GET(request, { params }) {
 	const { category } = params;
 
-	const productsFiltered = category === "todos" ? mockData : mockData.filter((item) => item.category === category);
+	const productsRef = collection(db, "productos");
 
-	return NextResponse.json(productsFiltered);
+	const q = category === "todos" ? query(productsRef) : query(productsRef, where("category", "==", category));
+
+	const querySnapshot = await getDocs(q);
+
+	const docs = querySnapshot.docs.map((doc) => doc.data());
+
+	//Para agregar los productos a la base de datos
+	/* 	mockData.forEach((product) => {
+		const docRef = doc(db, "productos", product.slug);
+		setDoc(docRef, product);
+	}); */
+
+	return NextResponse.json(docs);
 }

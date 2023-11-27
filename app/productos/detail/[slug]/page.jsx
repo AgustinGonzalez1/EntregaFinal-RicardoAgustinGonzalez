@@ -10,6 +10,7 @@ export async function generateMetadata({ params, searchParams }, parent) {
 const page = async ({ params }) => {
 	const { slug } = params;
 	const product = await getProduct(slug);
+
 	return (
 		<main className="flex items-center h-[calc(100vh-75px)]">
 			<section className="container mx-auto">
