@@ -2,6 +2,7 @@
 import React, { useState } from "react";
 import Hamburger from "./Hamburger";
 import NavLinks from "./NavLinks";
+import CartWidget from "./CartWidget";
 
 const NavLinksContainer = () => {
 	const [classes, setClasses] = useState(false);
@@ -17,7 +18,7 @@ const NavLinksContainer = () => {
 				className={`h-0 bg-white z-10 ease-in-out duration-300 flex items-center absolute md:static w-full md:w-auto justify-center flex-col md:flex-row overflow-hidden top-[76px] left-[0px] gap-5 text-black md:h-auto ${show}`}>
 				<NavLinks href={"/"} text={"Inicio"} set={setClasses} />
 				<NavLinks href={"/productos/todos"} text={"Productos"} set={setClasses} />
-				<NavLinks href={"/cart"} text={"Carrito"} set={setClasses} />
+				<CartWidget />
 			</ul>
 		</div>
 	);

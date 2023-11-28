@@ -7,6 +7,18 @@ export async function generateMetadata({ params, searchParams }, parent) {
 	};
 }
 
+export function generateStaticParams() {
+	return [
+		{ category: "todos" },
+		{ category: "aros" },
+		{ category: "anillos" },
+		{ category: "collares" },
+		{ category: "pulseras" },
+	];
+}
+
+export const revalidate = 3600;
+
 const FilterProducts = async ({ params }) => {
 	const { category } = params;
 

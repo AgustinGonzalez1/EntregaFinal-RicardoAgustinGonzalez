@@ -1,5 +1,7 @@
 import { getProduct } from "@/app/api/detail/[slug]/product";
+import Loading from "@/components/loading/Loading";
 import ProductDetailContainer from "@/components/products/ProductDetailContainer";
+import { Suspense } from "react";
 
 export async function generateMetadata({ params, searchParams }, parent) {
 	return {
@@ -14,7 +16,9 @@ const page = async ({ params }) => {
 	return (
 		<main className="flex items-center h-[calc(100vh-75px)]">
 			<section className="container mx-auto">
-				<ProductDetailContainer product={product} />
+				<Suspense fallback={<Loading />}>
+					<ProductDetailContainer product={product} />
+				</Suspense>
 			</section>
 		</main>
 	);
