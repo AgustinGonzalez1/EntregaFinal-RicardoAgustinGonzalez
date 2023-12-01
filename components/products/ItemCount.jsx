@@ -3,6 +3,7 @@ import Button from "./Button";
 
 import { BsPlusLg } from "react-icons/bs";
 import { BiMinus } from "react-icons/bi";
+import { useCartContext } from "../context/CartContext";
 
 const AddAndSubtract = ({ operation, icon }) => {
 	return (
@@ -14,9 +15,17 @@ const AddAndSubtract = ({ operation, icon }) => {
 	);
 };
 
-const ItemCount = ({ stock, setQuantityAdded }) => {
+const ItemCount = ({ stock, setQuantityAdded, initial, onAddToCart }) => {
+	const [selectedQuantity, setSelectedQuantity] = useState(initial);
 	const [newStock, setNewStock] = useState(stock);
-	const [selectedQuantity, setSelectedQuantity] = useState(1);
+	const { cart } = useCartContext();
+
+	useEffect(() => {
+		const cartItem = cart.find((item) => item.idx === stock.idx);
+		const cartItemQuantity = cartItem ? cartItem.quantity : 0;
+		const updatedStock = stock.stock - cartItemQuantity;
+		setNewStock(updatedStock);
+	}, [cart, stock]);
 
 	useEffect(() => {
 		if (newStock === 0) {
@@ -44,7 +53,7 @@ const ItemCount = ({ stock, setQuantityAdded }) => {
 			setSelectedQuantity(1);
 		}
 		setQuantityAdded(selectedQuantity);
-		console.log(selectedQuantity);
+		onAddToCart(selectedQuantity);
 	};
 
 	return (

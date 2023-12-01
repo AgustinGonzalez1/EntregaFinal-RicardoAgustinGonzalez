@@ -11,10 +11,10 @@ export const CartContextProvider = ({ children }) => {
 	const [cart, setCart] = useState([]);
 
 	const addToCart = (item, quantity) => {
-		if (isInCart(item.id) || isInCart(item.idx)) {
+		if (isInCart(item.slug)) {
 			setCart((prevCart) => {
 				const updatedCart = prevCart.map((prod) => {
-					if (prod.idx === item.idx) {
+					if (prod.slug === item.slug) {
 						return { ...prod, quantity: prod.quantity + quantity };
 					}
 					return prod;

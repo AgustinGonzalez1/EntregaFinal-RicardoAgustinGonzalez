@@ -4,7 +4,6 @@ import { useCartContext } from "../context/CartContext";
 
 const CartWidget = () => {
 	const { cart } = useCartContext();
-	console.log(cart);
 	return (
 		<Link href="/cart">
 			<div className="relative px-1">
