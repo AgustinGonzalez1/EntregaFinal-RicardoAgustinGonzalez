@@ -1,7 +1,6 @@
 import Image from "next/image";
 
-const CardCart = ({ product }) => {
-	console.log(product);
+const CardCart = ({ product, deleteProduct }) => {
 	return (
 		<article className="flex justify-center">
 			<div className="relative w-[70px] h-[70px}">
@@ -18,7 +17,9 @@ const CardCart = ({ product }) => {
 				<p className="text-sm">Cantidad: {product.quantity}</p>
 			</div>
 			<div className=" p-2 gap-2 bg-[#f8f8f8] flex flex-col justify-between">
-				<button className="hover:text-red-600 duration-300">Borrar</button>
+				<button className="hover:text-red-600 duration-300" onClick={() => deleteProduct(product.slug)}>
+					Borrar
+				</button>
 				<p className="text-sm">${product.price * product.quantity}</p>
 			</div>
 		</article>
