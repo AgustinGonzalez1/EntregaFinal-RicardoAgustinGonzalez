@@ -22,7 +22,7 @@ const CartContainer = () => {
 
 					<div className="flex pb-5 items-center gap-5">
 						<div className="flex justify-center">
-							<p className="text-xl">Total: $0</p>
+							<p className="text-xl">Total: ${cart.reduce((a, b) => a + b.price * b.quantity, 0)}</p>
 						</div>
 						<div className="flex justify-center">
 							<Button text1="Terminar compra" />
