@@ -4,8 +4,8 @@ import Image from "next/image";
 import { useState } from "react";
 import { MdDeleteOutline, MdModeEditOutline } from "react-icons/md";
 
-const ProductTable = () => {
-	const [data, setData] = useState(mockData);
+const ProductTable = ({ products }) => {
+	const [data, setData] = useState(products);
 
 	const handleEdit = (title) => {
 		// Lógica para editar el producto

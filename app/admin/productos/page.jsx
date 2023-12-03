@@ -1,6 +1,9 @@
+import { getProducts } from "@/app/api/productos/[category]/products";
 import Tabla from "@/components/table/Tabla";
 
-const page = () => {
+const page = async () => {
+	const products = await getProducts("todos");
+
 	return (
 		<main>
 			<section className="container mx-auto">
@@ -13,7 +16,7 @@ const page = () => {
 				<div className="my-2">
 					<h3 className="text-2xl">Listado de productos</h3>
 				</div>
-				<Tabla />
+				<Tabla products={products} />
 			</section>
 		</main>
 	);
