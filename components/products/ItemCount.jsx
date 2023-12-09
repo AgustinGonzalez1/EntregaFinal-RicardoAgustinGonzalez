@@ -17,13 +17,17 @@ const AddAndSubtract = ({ operation, icon }) => {
 
 const ItemCount = ({ stock, setQuantityAdded, initial, onAddToCart }) => {
 	const [selectedQuantity, setSelectedQuantity] = useState(initial);
-	const [newStock, setNewStock] = useState(stock);
+	const [newStock, setNewStock] = useState(stock.stock);
 	const { cart } = useCartContext();
 
 	useEffect(() => {
-		const cartItem = cart.find((item) => item.idx === stock.idx);
+		const cartItem = cart.find((item) => {
+			return item.slug === stock.slug;
+		});
+
 		const cartItemQuantity = cartItem ? cartItem.quantity : 0;
 		const updatedStock = stock.stock - cartItemQuantity;
+
 		setNewStock(updatedStock);
 	}, [cart, stock]);
 
@@ -34,10 +38,6 @@ const ItemCount = ({ stock, setQuantityAdded, initial, onAddToCart }) => {
 			setSelectedQuantity(1);
 		}
 	}, [newStock]);
-
-	useEffect(() => {
-		setNewStock(stock);
-	}, [stock]);
 
 	const add = () => {
 		selectedQuantity < newStock && setSelectedQuantity(selectedQuantity + 1);

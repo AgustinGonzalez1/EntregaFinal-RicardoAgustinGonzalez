@@ -1,10 +1,10 @@
-import CreateForm from "@/components/create/CreateForm";
+import CreateFormContainer from '@/components/create/CreateFormContainer';
 
 const page = async () => {
-	return (
-		<main className="container mx-auto">
-			<CreateForm />
-		</main>
-	);
+  return (
+    <main className='container mx-auto'>
+      <CreateFormContainer />
+    </main>
+  );
 };
 export default page;

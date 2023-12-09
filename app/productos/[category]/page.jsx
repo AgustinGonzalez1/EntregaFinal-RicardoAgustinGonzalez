@@ -1,5 +1,6 @@
 import { getProducts } from "@/app/api/productos/[category]/products";
-import CardProduct from "@/components/products/CardProduct";
+import CardProductContainer from "@/components/products/CardProductContainer";
+import { redirect } from "next/navigation";
 
 export async function generateMetadata({ params, searchParams }, parent) {
 	return {
@@ -26,11 +27,21 @@ const FilterProducts = async ({ params }) => {
 
 	const title = category === "todos" ? "Todos los productos" : category;
 
+	if (
+		category !== "todos" &&
+		category !== "aros" &&
+		category !== "anillos" &&
+		category !== "collares" &&
+		category !== "pulseras"
+	) {
+		redirect("/not-found");
+	}
+
 	return (
 		<section className="bg">
 			<div className="container mx-auto">
 				<h2 className={`text-3xl text-center my-5 ${category !== "todos" ? "capitalize" : ""}`}>{title}</h2>
-				<CardProduct data={data} />
+				<CardProductContainer data={data} />
 			</div>
 		</section>
 	);

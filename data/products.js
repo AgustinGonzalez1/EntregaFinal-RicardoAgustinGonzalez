@@ -90,7 +90,7 @@ export const mockData = [
 		category: "anillos",
 	},
 	{
-		title: "ANILLO TOXI-TAXI",
+		title: "ANILLO TOXI TAXI",
 		stock: 10,
 		price: "8.000",
 		slug: "anillo-toxi-taxi",

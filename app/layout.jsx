@@ -1,6 +1,7 @@
 import Navbar from "@/components/navbar/Navbar";
 import "./globals.css";
 import { CartContextProvider } from "@/components/context/CartContext";
+import { AuthContextProvider } from "@/components/context/AuthContext";
 
 export const metadata = {
 	title: "CORONA",
@@ -17,10 +18,12 @@ export default function RootLayout({ children }) {
 	return (
 		<html lang="en">
 			<body>
-				<CartContextProvider>
-					<Navbar />
-					{children}
-				</CartContextProvider>
+				<AuthContextProvider>
+					<CartContextProvider>
+						<Navbar />
+						{children}
+					</CartContextProvider>
+				</AuthContextProvider>
 			</body>
 		</html>
 	);
