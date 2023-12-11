@@ -8,10 +8,6 @@ export async function generateMetadata({ params, searchParams }, parent) {
   };
 }
 
-export function generateStaticParams() {
-  return ['todos', 'aros', 'anillos', 'collares', 'pulseras'];
-}
-
 const FilterProducts = async ({ params }) => {
   const { category } = params;
 
