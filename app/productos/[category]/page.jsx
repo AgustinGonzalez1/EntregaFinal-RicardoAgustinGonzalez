@@ -9,14 +9,19 @@ export async function generateMetadata({ params, searchParams }, parent) {
 }
 
 export function generateStaticParams() {
-  return ['todos', 'aros', 'anillos', 'collares', 'pulseras'];
+  return [
+    { category: 'todos' },
+    { category: 'aros' },
+    { category: 'anillos' },
+    { category: 'collares' },
+    { category: 'pulseras' },
+  ];
 }
 
 export const revalidate = 60;
 
 const FilterProducts = async ({ params }) => {
   const { category } = params;
-
   const data = await getProducts(category);
 
   const title = category === 'todos' ? 'Todos los productos' : category;

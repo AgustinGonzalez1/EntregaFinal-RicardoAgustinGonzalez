@@ -11,6 +11,6 @@ export const getProducts = async (category) => {
 
     return data;
   } catch (err) {
-    return err;
+    console.log(err);
   }
 };
