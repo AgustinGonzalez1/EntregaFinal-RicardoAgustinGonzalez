@@ -4,8 +4,20 @@ import { useForm } from 'react-hook-form';
 import { createProduct } from './create';
 import Button from '../products/Button';
 import { ToastContainer } from 'react-toastify';
-import { notify } from '../ui/toast';
+import { toast } from 'react-toastify';
 import Link from 'next/link';
+
+const notify = (text) =>
+  toast.success(text, {
+    position: 'top-center',
+    autoClose: 3000,
+    hideProgressBar: false,
+    closeOnClick: true,
+    pauseOnHover: true,
+    draggable: true,
+    progress: undefined,
+    theme: 'light',
+  });
 
 const CreateForm = () => {
   const {

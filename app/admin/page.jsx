@@ -1,10 +1,9 @@
 import Link from 'next/link';
 import Tabla from '@/components/table/Tabla';
-import { getProducts } from '../api/productos/[category]/products';
+
 import LogOut from '@/components/table/LogOut';
 
 const page = async () => {
-  const products = await getProducts('todos');
   return (
     <main>
       <section className='container mx-auto'>
@@ -21,7 +20,7 @@ const page = async () => {
             Agregar producto
           </Link>
         </div>
-        <Tabla products={products} />
+        <Tabla />
       </section>
     </main>
   );
