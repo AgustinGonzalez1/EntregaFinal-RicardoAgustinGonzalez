@@ -11,7 +11,6 @@ import ModalDelete from './ModalDelete';
 import { deleteProduct, modifyProduct } from './editAndDelete';
 
 import { ToastContainer, toast } from 'react-toastify';
-
 import 'react-toastify/dist/ReactToastify.css';
 
 const notify = (text) =>
