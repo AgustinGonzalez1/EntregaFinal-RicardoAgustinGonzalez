@@ -129,14 +129,21 @@ const CartContainer = () => {
 
               <p className='text-red-500 h-6'>{errors.email?.message}</p>
 
-              <button
-                className='p-2 border-2 w-full relative bg-transparent z-[2] button group transition-all duration-300 ease-in-out border-oscuro1 hover:text-white md:text-sm text-xs'
-                type='submit'
-              >
-                <span className='absolute bg-slate-600 h-full w-0 top-0 left-0 z-[-1] button-span1 group-hover:w-1/2 duration-300 ease-in-out'></span>
-                Finalizar compra
-                <span className='absolute bg-slate-600 h-full w-0 top-0 right-0 z-[-1] button-span2 group-hover:w-1/2 duration-300 ease-in-out'></span>
-              </button>
+              <div className='flex justify-between'>
+                <button
+                  type='submit'
+                  className='bg-green-500 hover:bg-green-700 font-bold duration-300 ease-in-out text-white py-2 px-4 rounded-xl'
+                >
+                  Finalizar
+                </button>
+                <button
+                  type='button'
+                  className='bg-red-500 hover:bg-red-700 font-bold duration-300 ease-in-out text-white py-2 px-4 rounded-xl'
+                  onClick={() => setModalFinish(false)}
+                >
+                  Cancelar
+                </button>
+              </div>
             </form>
           </div>
         </div>
