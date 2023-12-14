@@ -4,19 +4,20 @@ import Image from 'next/image';
 import { useEffect, useState } from 'react';
 import { MdDeleteOutline, MdModeEditOutline } from 'react-icons/md';
 import { db } from '@/firebase/config';
-import { ToastContainer } from 'react-toastify';
 import { collection, onSnapshot } from 'firebase/firestore';
 import { useForm } from 'react-hook-form';
 import ModalEdit from './ModalEdit';
 import ModalDelete from './ModalDelete';
-import { toast } from 'react-toastify';
-
 import { deleteProduct, modifyProduct } from './editAndDelete';
+
+import { ToastContainer, toast } from 'react-toastify';
+
+import 'react-toastify/dist/ReactToastify.css';
 
 const notify = (text) =>
   toast.success(text, {
     position: 'top-center',
-    autoClose: 3000,
+    autoClose: 5000,
     hideProgressBar: false,
     closeOnClick: true,
     pauseOnHover: true,
@@ -76,8 +77,19 @@ const ProductTable = () => {
 
   return (
     <>
-      <ToastContainer />
-      <table className='w-full'>
+      <ToastContainer
+        position='top-center'
+        autoClose={5000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+        theme='light'
+      />
+      <table className='w-full hidden sm:table'>
         <thead className='text-left'>
           <tr className='border-t-2'>
             <th>Titulo</th>
@@ -124,6 +136,40 @@ const ProductTable = () => {
           ))}
         </tbody>
       </table>
+
+      {snapData.map((producto, key) => (
+        <div
+          key={key}
+          className='border rounded-lg p-4 m-4  w-80 mx-auto flex flex-col items-center sm:hidden'
+        >
+          <Image
+            width={100}
+            height={100}
+            alt={producto.title}
+            src={producto.image}
+            className='object-cover mb-3'
+          />
+          <h2 className='text-lg font-bold'>{producto.title}</h2>
+          <p className='text-gray-700'>{producto.slug}</p>
+          <p className='text-gray-700'>{producto.type}</p>
+          <p className='font-semibold'>${producto.price}</p>
+          <p className='text-gray-500'>Stock: {producto.stock}</p>
+          <div className='flex mt-3 justify-between w-full'>
+            <button
+              className='px-3 py-1 rounded-md bg-blue-700 text-white hover:bg-blue-900 transition duration-300 ease-in-out'
+              onClick={() => handleEdit(producto)}
+            >
+              Editar
+            </button>
+            <button
+              className='px-3 py-1 rounded-md bg-red-700 text-white hover:bg-red-900 transition duration-300 ease-in-out'
+              onClick={() => handleDelete(producto)}
+            >
+              Eliminar
+            </button>
+          </div>
+        </div>
+      ))}
 
       {modalDelete && (
         <ModalDelete

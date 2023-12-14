@@ -9,13 +9,21 @@ const FormAdmin = () => {
     handleSubmit,
     formState: { errors },
     getValues,
+    setError,
   } = useForm();
 
   const { registerUser, loginUser, googleLogin } = useAuthContext();
 
   const onSubmit = handleSubmit(async (data) => {
     try {
-      loginUser(data.email, data.password);
+      const user = await loginUser(data.email, data.password);
+
+      if (!user) {
+        setError('credentials', {
+          type: 'custom',
+          message: 'Email o contraseña incorrectos',
+        });
+      }
     } catch (err) {
       console.log(err);
     }
@@ -54,6 +62,7 @@ const FormAdmin = () => {
         })}
       />
       <p className='text-red-500 text-sm'>{errors?.password?.message}</p>
+      <p className='text-red-500 text-sm'>{errors?.credentials?.message}</p>
       <button className='p-2 border-2 w-full relative bg-transparent z-[2] button group transition-all border-gray-700 duration-300 ease-in-out border-oscuro1 hover:text-white md:text-sm text-xs'>
         <span className='absolute bg-gray-700 h-full w-0 top-0 left-0 z-[-1] button-span1 group-hover:w-1/2 duration-300 ease-in-out'></span>
         Ingresar

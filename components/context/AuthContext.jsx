@@ -26,7 +26,16 @@ export const AuthContextProvider = ({ children }) => {
   };
 
   const loginUser = async (email, password) => {
-    await signInWithEmailAndPassword(auth, email, password);
+    try {
+      const user = await signInWithEmailAndPassword(auth, email, password);
+      if (user) {
+        return true;
+      } else {
+        return false;
+      }
+    } catch (err) {
+      return false;
+    }
   };
 
   const logOut = async () => {
