@@ -88,9 +88,9 @@ const CartContainer = () => {
               <Button function1={clear} text1='Vaciar carrito' />
             </div>
 
-            <div className='flex pb-5 items-center gap-5'>
+            <div className='flex pb-5 items-center gap-1'>
               <div className='flex justify-center'>
-                <p className='text-xl'>
+                <p className='md:text-xl text-sm'>
                   Total: ${cart.reduce((a, b) => a + b.price * b.quantity, 0)}
                 </p>
               </div>
